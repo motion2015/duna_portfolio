@@ -23,7 +23,7 @@ export default function ProjectCard({
       {link && (
         <a
           href={link}
-          target='_blank'
+          target='_self'
           rel='noopener noreferrer'
           className='project-card__link'
         >

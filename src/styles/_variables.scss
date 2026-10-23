@@ -76,7 +76,7 @@ $themes: (
     }
   } @else {
     // 라이트 및 블루 테마 처리
-    [data-theme='#{$theme}'] {
+    [data-theme='#{"" + $theme}'] {
       @each $key, $value in $map {
         --color-#{$key}: #{$value};
       }
