@@ -12,6 +12,11 @@
     font-size: 14px;
     font-weight: 500;
     color: var(--text-secondary);
+
+    /* 👇 모바일 화면(768px 이하)에서 라벨 숨기기 */
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__select {
