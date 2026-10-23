@@ -1,0 +1,227 @@
+@use '@styles/variables' as *;
+
+.page-home {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+}
+
+.main-content {
+  padding-top: 72px;
+}
+
+// Hero 섹션
+.hero {
+  padding: 120px 24px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(56, 189, 248, 0.08) 0%,
+    transparent 50%
+  );
+
+  &__inner {
+    max-width: 840px;
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: var(--color-primary-glow);
+    color: var(--color-primary);
+    border: 1px solid rgba(var(--color-primary), 0.2);
+    border-radius: 30px;
+    font-size: 0.825rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+
+    strong {
+      color: var(--color-primary);
+      font-weight: 800;
+    }
+  }
+
+  &__desc {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    font-weight: 400;
+    max-width: 640px;
+  }
+}
+
+// 공통 섹션 헤더
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+
+  .section-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-size: 2.35rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .section-desc {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+  }
+}
+
+// About 섹션
+.about-section {
+  padding: 90px 24px;
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.about-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(var(--color-primary), 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+}
+
+// Skills 섹션
+.skills-section {
+  padding: 90px 24px;
+  background-color: rgba(15, 23, 42, 0.4);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+// Projects 섹션
+.projects-section {
+  padding: 100px 24px;
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
+}
+
+// Contact 섹션
+.contact-section {
+  padding: 110px 24px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(56, 189, 248, 0.03) 100%
+  );
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+
+  &__inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .contact-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 12px 0 16px;
+  }
+
+  .contact-desc {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .btn-contact {
+    display: inline-block;
+    padding: 16px 36px;
+    background-color: var(--color-primary);
+    color: #090d16;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(var(--color-primary), 0.3);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(var(--color-primary), 0.45);
+    }
+  }
+}
+
+// Footer
+.footer {
+  padding: 40px 24px;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  background-color: var(--color-bg);
+}

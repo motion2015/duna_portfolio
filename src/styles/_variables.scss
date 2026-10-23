@@ -1,0 +1,77 @@
+// _variables.scss
+// $color-bg: #090d16;
+// $color-bg-card: #111827;
+// $color-border: #1f293d;
+// $color-surface: #111827;
+
+// $color-primary: #38bdf8;
+// $color-primary-dark: #0284c7;
+// $color-primary-glow: rgba(56, 189, 248, 0.15);
+
+// $color-text: #f3f4f6;
+// $color-text-muted: #9ca3af;
+
+// $font-family-base:
+//   'Inter',
+//   -apple-system,
+//   BlinkMacSystemFont,
+//   'Segoe UI',
+//   Roboto,
+//   sans-serif;
+
+// $breakpoint-mobile: 576px;
+// $breakpoint-tablet: 768px;
+// $breakpoint-desktop: 1024px;
+
+// 1. 테마별 컬러 팰릿 정의
+$themes: (
+  dark: (
+    bg: #090d16,
+    bg-card: #111827,
+    border: #1f293d,
+    surface: #111827,
+    primary: #38bdf8,
+    primary-dark: #0284c7,
+    primary-glow: rgba(56, 189, 248, 0.15),
+    text: #f3f4f6,
+    text-muted: #9ca3af,
+  ),
+  light: (
+    bg: #f8fafc,
+    bg-card: #ffffff,
+    border: #e2e8f0,
+    surface: #ffffff,
+    primary: #0284c7,
+    primary-dark: #0369a1,
+    primary-glow: rgba(2, 132, 199, 0.1),
+    text: #0f172a,
+    text-muted: #64748b,
+  ),
+);
+
+// 2. 믹스인 또는 속성 자동 생성 로직 (선택 사항)
+// 각 컴포넌트에서 var(--color-bg) 형태로 가져다 쓸 수 있도록 루트에 CSS 변수 매핑
+:root {
+  @each $key, $value in map-get($themes, dark) {
+    --color-#{$key}: #{$value};
+  }
+}
+
+[data-theme='light'] {
+  @each $key, $value in map-get($themes, light) {
+    --color-#{$key}: #{$value};
+  }
+}
+
+// 3. 폰트 및 브레이크포인트는 테마와 무관하므로 그대로 유지
+$font-family-base:
+  'Inter',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  sans-serif;
+
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;

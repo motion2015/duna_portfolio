@@ -1,0 +1,188 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  // 배경 오버레이를 좀 더 깊이감 있게 처리
+  background-color: rgba(4, 7, 13, 0.85);
+  backdrop-filter: blur(12px); // 블러 효과를 높여 배경과 확실히 분리
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.modal-container {
+  // 👈 기존 단색 배경 대신, 위에서 아래로 흐르는 고급스러운 다크 네이비 그라데이션 적용
+  background: linear-gradient(145deg, #131c31 0%, #0d1322 100%);
+  // 👈 테두리에 은은한 프라이머리 컬러 감성을 주어 고급스러운 입체감 부여
+  border: 1px solid rgba(var(--color-primary), 0.3);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(var(--color-primary), 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08); // 상단에 아주 미세한 하이라이트 라인
+
+  overflow: hidden;
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 36px; // 여백 확장
+
+  // 👈 헤더 하단 경계선도 은은하게 빛나도록 수정
+  border-bottom: 1px solid rgba(var(--color-primary), 0.15);
+  background-color: rgba(255, 255, 255, 0.01); // 아주 미세한 광택감
+  gap: 16px; // 👈 타이틀과 버튼 사이의 안전한 간격 확보
+
+  .modal-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    // 텍스트에 화이트 톤을 선명하게 주어 가독성 확보
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+
+  .modal-close-btn {
+    background: rgba(var(--color-primary), 0.08);
+    border: 1px solid rgba(var(--color-primary), 0.2);
+    color: var(--color-text-muted);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    /* 👇 정중앙 정렬을 위한 핵심 코드 */
+    line-height: 1; // 텍스트 고유 라인하이트 여백 제거
+    padding: 0;
+    padding-bottom: 2px; // 폰트 기본 베이스라인 때문에 아래로 내려가는 현상 보정
+    cursor: pointer;
+    border-radius: 50%; // 원형 버튼으로 변경하여 세련미 추가
+    flex-shrink: 0; // 👈 버튼 크기가 변형되거나 아래로 밀리는 현상 원천 차단
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #ffffff;
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 15px rgba(var(--color-primary), 0.5);
+    }
+  }
+}
+
+.modal-body {
+  padding: 36px; // 여백 확장
+  overflow-y: auto;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--color-primary), 0.3);
+    border-radius: 3px;
+
+    &:hover {
+      background-color: rgba(var(--color-primary), 0.6);
+    }
+  }
+}
+
+/* 애니메이션 Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// src/components/common/Modal.scss 파일 하단에 추가
+
+.experience-modal {
+  &__period {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+    display: inline-block;
+    background-color: rgba(var(--color-primary), 0.1);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(var(--color-primary), 0.2);
+  }
+
+  &__summary {
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  &__desc {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  &__skills-section {
+    border-top: 1px solid rgba(var(--color-border), 0.6);
+    padding-top: 16px;
+
+    .skills-title {
+      color: var(--color-text);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+
+      .skill-badge {
+        font-size: 0.75rem;
+        font-weight: 600;
+        background-color: rgba(var(--color-primary), 0.1);
+        color: var(--color-primary);
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid rgba(var(--color-primary), 0.2);
+      }
+    }
+  }
+}

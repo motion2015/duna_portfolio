@@ -1,0 +1,27 @@
+@use '@styles/variables' as *;
+
+// 반응형 미디어 쿼리 믹스인
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+// Flexbox 중앙 정렬 헬퍼
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

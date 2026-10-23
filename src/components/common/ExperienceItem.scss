@@ -1,0 +1,107 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+// 타임라인 전체 부모 영역에 세로줄을 한 번에 그립니다.
+.experience-timeline {
+  position: relative;
+
+  // 👈 이 세로줄이 전체 아이템을 관통하며 끊김 없이 이어집니다.
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 7px; // 마커(16px)의 정중앙
+    width: 2px;
+    background-color: var(--color-border);
+    opacity: 0.8;
+  }
+}
+
+.experience-item {
+  position: relative;
+  padding-left: 40px; // 마커가 들어갈 공간 확보
+  margin-bottom: 40px;
+
+  // &:last-child {
+  //   margin-bottom: 0;
+  // }
+
+  // 타임라인 동그라미 마커
+  &__marker {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--color-bg);
+    border: 3px solid var(--color-primary);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+    z-index: 2; // 세로줄 위에 마커가 오도록 설정
+  }
+
+  // 카드 콘텐츠 영역 및 호버 효과
+  &__content {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.2s ease;
+    cursor: pointer; // 클릭 가능한 카드 느낌 부여
+  }
+
+  // 카드 전체 호버 시 효과
+  &:hover {
+    .experience-item__content {
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__period {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  &__role {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 12px;
+
+    .company {
+      color: var(--color-text-muted);
+      font-weight: 400;
+      font-size: 1rem;
+    }
+  }
+
+  &__desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background-color: rgba(56, 189, 248, 0.1);
+      color: var(--color-primary);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+  }
+}
