@@ -12,7 +12,7 @@ export default function App() {
       <Header />
 
       {/* 2. 헤더가 position: fixed 이므로 본문이 가리지 않도록 상단 여백(padding-top) 확보 */}
-      <main className='main-content' style={{ paddingTop: '70px' }}>
+      <main className='main-content'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/experience' element={<Experience />} />

@@ -12,3 +12,14 @@ body,
   width: 100%;
   min-height: 100%;
 }
+
+html,
+body,
+#root {
+  background-color: var(
+    --color-bg
+  ); /* 👈 브라우저 바닥까지 다크 테마 배경색으로 채우기 */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
