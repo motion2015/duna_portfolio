@@ -6,14 +6,15 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 70px; // 👈 평소 높이 고정
+  padding: 0 24px; // 👈 패딩 고정 (가로 정렬용)
   background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid transparent; // 👈 경계선 공간을 미리 확보해 둠
   z-index: 1000;
   transition: all 0.3s ease;
 
   &--scrolled {
-    height: 60px;
+    height: 75px;
     background-color: var(--color-surface);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   }

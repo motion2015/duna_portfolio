@@ -136,28 +136,28 @@ const Header = () => {
           <nav className='mobile-menu__nav'>
             <a
               href='#about'
-              onClick={handleLinkClick}
+              onClick={toggleMobileMenu}
               className='mobile-menu__link'
             >
               About
             </a>
             <a
               href='#skills'
-              onClick={handleLinkClick}
+              onClick={toggleMobileMenu}
               className='mobile-menu__link'
             >
               Skills
             </a>
             <a
               href='#projects'
-              onClick={handleLinkClick}
+              onClick={toggleMobileMenu}
               className='mobile-menu__link'
             >
               Projects
             </a>
             <a
               href='#contact'
-              onClick={handleLinkClick}
+              onClick={toggleMobileMenu}
               className='mobile-menu__link'
             >
               Contact

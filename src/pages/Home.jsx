@@ -88,128 +88,128 @@ export default function Home() {
 
   return (
     <div className='page-home'>
-      <Header />
-      <main className='main-content'>
-        {/* 1. Hero 섹션 (오프닝) */}
-        <section className='hero'>
-          <div className='hero__inner'>
-            <span className='hero__tag'>
-              UI/UX Publisher & Frontend Developer
-            </span>
-            <h2 className='hero__title'>
-              단단한 웹 표준과 구조 위에서
-              <br />
-              <strong>완벽한 사용자 경험</strong>을 만듭니다.
-            </h2>
-            <p className='hero__desc'>
-              18년 동안 쌓아온 마크업 및 스타일링 전문성과 현대적인 React
-              컴포넌트 아키텍처를 결합하여 유지보수하기 쉽고 정교한 웹
-              인터페이스를 구축합니다.
-            </p>
+      {/* <Header /> */}
+      {/* <main className='main-content'> */}
+      {/* 1. Hero 섹션 (오프닝) */}
+      <section className='hero'>
+        <div className='hero__inner'>
+          <span className='hero__tag'>
+            UI/UX Publisher & Frontend Developer
+          </span>
+          <h2 className='hero__title'>
+            단단한 웹 표준과 구조 위에서
+            <br />
+            <strong>완벽한 사용자 경험</strong>을 만듭니다.
+          </h2>
+          <p className='hero__desc'>
+            18년 동안 쌓아온 마크업 및 스타일링 전문성과 현대적인 React 컴포넌트
+            아키텍처를 결합하여 유지보수하기 쉽고 정교한 웹 인터페이스를
+            구축합니다.
+          </p>
+        </div>
+      </section>
+      {/* 2. About 섹션 (경력 핵심) - id="about" */}
+      {/* About / Experience Summary Section */}
+      <section id='about' className='about-section'>
+        {' '}
+        {/* 👈 여기에 id="about"이 꼭 있어야 합니다! */}
+        <div className='about-section__inner'>
+          <div className='section-header'>
+            <span className='section-badge'>ABOUT ME</span>
+            <h3 className='section-title'>Solid Experience & Value</h3>
           </div>
-        </section>
-        {/* 2. About 섹션 (경력 핵심) - id="about" */}
-        {/* About / Experience Summary Section */}
-        <section id='about' className='about-section'>
-          {' '}
-          {/* 👈 여기에 id="about"이 꼭 있어야 합니다! */}
-          <div className='about-section__inner'>
-            <div className='section-header'>
-              <span className='section-badge'>ABOUT ME</span>
-              <h3 className='section-title'>Solid Experience & Value</h3>
-            </div>
-            <div className='about-content'>
-              <div className='about-card'>
-                <h4>18+ Years Experience</h4>
-                <p>
-                  대규모 엔터프라이즈 환경에서의 UI 퍼블리싱 및 리딩 경험을
-                  보유하고 있습니다.
-                </p>
-              </div>
-              <div className='about-card'>
-                <h4>Web Standards & Accessibility</h4>
-                <p>
-                  모든 사용자를 고려한 웹 표준과 접근성(WAI-ARIA) 지침을
-                  정교하게 구현합니다.
-                </p>
-              </div>
-              <div className='about-card'>
-                <h4>Modern Component System</h4>
-                <p>
-                  SCSS 아키텍처와 React 컴포넌트를 연계하여 재사용성 높은 UI
-                  라이브러리를 만듭니다.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. Skills 섹션 (기술 스택) - id="skills" */}
-        <section id='skills' className='skills-section'>
-          <div className='skills-section__inner'>
-            <div className='section-header'>
-              <span className='section-badge'>EXPERTISE</span>
-              <h3 className='section-title'>Skills & Capabilities</h3>
-              <p className='section-desc'>
-                완벽한 마크업 기초 위에 현대적인 프론트엔드 역량을 더합니다.
+          <div className='about-content'>
+            <div className='about-card'>
+              <h4>18+ Years Experience</h4>
+              <p>
+                대규모 엔터프라이즈 환경에서의 UI 퍼블리싱 및 리딩 경험을
+                보유하고 있습니다.
               </p>
             </div>
-            <div className='skills-grid'>
-              {skillData.map((group, index) => (
-                <SkillCard
-                  key={index}
-                  category={group.category}
-                  items={group.items}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 4. Projects 섹션 (대표 프로젝트) - id="projects" */}
-        <section id='projects' className='projects-section'>
-          <div className='projects-section__inner'>
-            <div className='section-header'>
-              <span className='section-badge'>PORTFOLIO</span>
-              <h3 className='section-title'>Featured Projects</h3>
-              <p className='section-desc'>
-                완성도 높은 웹 구조와 마크업 역량을 담아낸 대표 작업물입니다.
+            <div className='about-card'>
+              <h4>Web Standards & Accessibility</h4>
+              <p>
+                모든 사용자를 고려한 웹 표준과 접근성(WAI-ARIA) 지침을 정교하게
+                구현합니다.
               </p>
             </div>
-            <div className='projects-grid'>
-              {projectData.map((project, index) => (
-                <ProjectCard
-                  key={index}
-                  {...project}
-                  // onClick 이벤트 발생 시 해당 프로젝트의 link 값을 넘겨줌
-                  onClick={() => handleDetailClick(project.link)}
-                />
-              ))}
+            <div className='about-card'>
+              <h4>Modern Component System</h4>
+              <p>
+                SCSS 아키텍처와 React 컴포넌트를 연계하여 재사용성 높은 UI
+                라이브러리를 만듭니다.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 5. Contact 섹션 (연락처/마무리) - id="contact" */}
-        <section id='contact' className='contact-section'>
-          <div className='contact-section__inner'>
-            <span className='section-badge'>CONTACT</span>
-            <h3 className='contact-title'>함께 일할 준비가 되어 있습니다</h3>
-            <p className='contact-desc'>
-              웹 표준, 컴포넌트 아키텍처, 그리고 지속 가능한 UI 개발에 대한
-              이야기를 나누고 싶으시다면 연락해 주세요.
+      {/* 3. Skills 섹션 (기술 스택) - id="skills" */}
+      <section id='skills' className='skills-section'>
+        <div className='skills-section__inner'>
+          <div className='section-header'>
+            <span className='section-badge'>EXPERTISE</span>
+            <h3 className='section-title'>Skills & Capabilities</h3>
+            <p className='section-desc'>
+              완벽한 마크업 기초 위에 현대적인 프론트엔드 역량을 더합니다.
             </p>
-            {/* ContactForm 컴포넌트 렌더링 */}
-            <div className='contact-content'>
-              <ContactForm onSubmit={handleFormSubmit} />
-            </div>
-            {/* <div className='contact-actions'>
+          </div>
+          <div className='skills-grid'>
+            {skillData.map((group, index) => (
+              <SkillCard
+                key={index}
+                category={group.category}
+                items={group.items}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Projects 섹션 (대표 프로젝트) - id="projects" */}
+      <section id='projects' className='projects-section'>
+        <div className='projects-section__inner'>
+          <div className='section-header'>
+            <span className='section-badge'>PORTFOLIO</span>
+            <h3 className='section-title'>Featured Projects</h3>
+            <p className='section-desc'>
+              완성도 높은 웹 구조와 마크업 역량을 담아낸 대표 작업물입니다.
+            </p>
+          </div>
+          <div className='projects-grid'>
+            {projectData.map((project, index) => (
+              <ProjectCard
+                key={index}
+                {...project}
+                // onClick 이벤트 발생 시 해당 프로젝트의 link 값을 넘겨줌
+                onClick={() => handleDetailClick(project.link)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Contact 섹션 (연락처/마무리) - id="contact" */}
+      <section id='contact' className='contact-section'>
+        <div className='contact-section__inner'>
+          <span className='section-badge'>CONTACT</span>
+          <h3 className='contact-title'>함께 일할 준비가 되어 있습니다</h3>
+          <p className='contact-desc'>
+            웹 표준, 컴포넌트 아키텍처, 그리고 지속 가능한 UI 개발에 대한
+            이야기를 나누고 싶으시다면 연락해 주세요.
+          </p>
+          {/* ContactForm 컴포넌트 렌더링 */}
+          <div className='contact-content'>
+            <ContactForm onSubmit={handleFormSubmit} />
+          </div>
+          {/* <div className='contact-actions'>
               <a href='mailto:motion74@naver.com' className='btn-contact'>
                 이메일 보내기
               </a>
             </div> */}
-          </div>
-        </section>
-      </main>
+        </div>
+      </section>
+      {/* </main> */}
 
       <footer className='footer'>
         <p>© 2026 Park Min Sook. All rights reserved.</p>
