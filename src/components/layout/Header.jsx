@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Header.scss';
-import ThemeToggle from '@components/common/ThemeToggle'; // 테마 토글 버튼 임포트
+// import ThemeToggle from '@components/common/ThemeToggle'; // 테마 토글 버튼 임포트
+import ThemeSelector from '@components/common/ThemeSelector'; // 드롭다운 UI 컴포넌트
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -15,26 +16,24 @@ export default function Header() {
   };
 
   // 1. localStorage나 시스템 기본 설정을 읽어와 초기 테마 설정
-  const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('app-theme');
-    if (savedTheme) return savedTheme;
+  // const [theme, setTheme] = useState(() => {
+  //   const savedTheme = localStorage.getItem('app-theme');
+  //   if (savedTheme) return savedTheme;
 
-    // 시스템 다크모드 선언 여부 확인
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
-  });
+  //   return window.matchMedia('(prefers-color-scheme: dark)').matches
+  //     ? 'dark'
+  //     : 'light';
+  // });
 
-  // 2. 테마가 바뀔 때마다 HTML 태그에 속성 부여 및 저장
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('app-theme', theme);
-  }, [theme]);
+  // // 2. 테마가 바뀔 때마다 HTML 태그에 속성 부여 및 저장
+  // useEffect(() => {
+  //   document.documentElement.setAttribute('data-theme', theme);
+  //   localStorage.setItem('app-theme', theme);
+  // }, [theme]);
 
-  // 3. 토글 핸들러
-  const handleToggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
+  // const handleToggleTheme = () => {
+  //   setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  // };
 
   return (
     <header className='header'>
@@ -94,7 +93,8 @@ export default function Header() {
 
           {/* 다크/라이트 토글 버튼을 메뉴 옆에 자연스럽게 배치 */}
           <div className='header__toggle-wrapper'>
-            <ThemeToggle theme={theme} onToggle={handleToggleTheme} />
+            {/* <ThemeToggle theme={theme} onToggle={handleToggleTheme} /> */}
+            <ThemeSelector />
           </div>
         </nav>
       </div>

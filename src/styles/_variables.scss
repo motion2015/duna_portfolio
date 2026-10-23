@@ -47,19 +47,40 @@ $themes: (
     text: #0f172a,
     text-muted: #64748b,
   ),
+  blue: (
+    bg: #0f172a,
+    // 깊고 세련된 네이비 블루 배경
+    bg-card: #1e293b,
+    // 카드 배경 (슬레이트 블루 톤)
+    border: #334155,
+    // 명확한 블루계열 테두리
+    surface: #1e293b,
+    primary: #3b82f6,
+    // 선명한 블루 포인트
+    primary-dark: #1d4ed8,
+    primary-glow: rgba(59, 130, 246, 0.2),
+    text: #f8fafc,
+    text-muted: #94a3b8,
+  ),
 );
 
-// 2. 믹스인 또는 속성 자동 생성 로직 (선택 사항)
-// 각 컴포넌트에서 var(--color-bg) 형태로 가져다 쓸 수 있도록 루트에 CSS 변수 매핑
-:root {
-  @each $key, $value in map-get($themes, dark) {
-    --color-#{$key}: #{$value};
-  }
-}
-
-[data-theme='light'] {
-  @each $key, $value in map-get($themes, light) {
-    --color-#{$key}: #{$value};
+// 2. CSS 변수 자동 생성 통합 로직
+@each $theme, $map in $themes {
+  @if $theme == dark {
+    // 기본값(:root)과 다크모드 속성을 함께 지정
+    :root,
+    [data-theme='dark'] {
+      @each $key, $value in $map {
+        --color-#{$key}: #{$value};
+      }
+    }
+  } @else {
+    // 라이트 및 블루 테마 처리
+    [data-theme='#{$theme}'] {
+      @each $key, $value in $map {
+        --color-#{$key}: #{$value};
+      }
+    }
   }
 }
 
